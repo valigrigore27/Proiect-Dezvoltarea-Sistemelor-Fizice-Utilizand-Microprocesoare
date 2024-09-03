@@ -1,0 +1,150 @@
+#define do1  262 
+#define re  294 
+#define mi  330
+#define fa  349 //fa
+#define fa_dz  370 //fa#
+#define sol  392 
+#define la  440 
+#define si  494 
+#define do2  523 
+#define re2  587 
+#define mi2 659
+
+#include <LiquidCrystal.h>
+LiquidCrystal lcd(12,11,5,4,3,2);
+
+//Pin definitions
+const int Blue = 9;
+const int Green = 8;
+const int Red = 10;
+const int Button = 7;
+const int Buzzer = 13;
+
+void playNote(int note, int duration) {
+  tone(13, note, duration);
+  delay(duration);
+}
+
+void melody() {
+  
+  //Primele  doua versuri din strofa:
+
+lcd.print(" Des");
+  playNote(mi, 500);
+  analogWrite(Red, 255);
+  
+  lcd.print("teap");
+  playNote(mi, 1000);
+  lcd.print("ta");
+  playNote(fa_dz, 250);
+  lcd.print("-te");
+  playNote(sol, 500);
+  playNote(la, 500);
+  playNote(si, 1000);
+  playNote(mi, 500);
+  playNote(mi, 500);
+
+  playNote(do2, 1000);
+  playNote(si, 250);
+  playNote(la, 500);
+  playNote(la, 500);
+  playNote(re2, 1000);
+  playNote(do2, 250);
+  playNote(si, 500);
+  playNote(si, 500);
+  playNote(mi2, 1000);
+  playNote(re2, 250);
+  playNote(do2, 250);
+  playNote(si, 250);
+  
+  playNote(la, 500);
+  playNote(si, 500);
+  playNote(sol, 1000);
+  playNote(la, 500);
+  playNote(si, 1000);
+  playNote(la, 250);
+  playNote(sol, 500);
+  playNote(fa_dz, 500);
+  playNote(mi, 1000);
+  playNote(fa_dz, 250);
+  playNote(sol, 500);
+
+  playNote(la, 500);
+  playNote(si, 500);
+  playNote(la, 250);
+  playNote(sol, 500);
+  playNote(fa_dz, 500);
+  playNote(sol, 500);
+  playNote(mi, 1000);
+  
+	delay(1000);
+  //Ultimele doua versuri din strofa:
+
+
+  playNote(mi, 500);//a
+  playNote(mi, 1000);//cum
+  playNote(mi2, 250);//ori
+  playNote(mi2, 500);//ni
+  playNote(mi2, 500);//cio
+  playNote(mi2, 1000);//da
+  playNote(re2, 500);//ta
+  playNote(re2, 500);//cro
+  
+  playNote(mi2, 1000);//ies
+  playNote(re2, 250);//te
+  playNote(do2, 250);//ti
+  playNote(si,250);//al
+  playNote(la, 500);//ta
+  playNote(re2, 1000);//soa
+  playNote(do2,250);//ar
+  playNote(si, 500);//ta
+  playNote(si, 500);//la
+  playNote(mi2, 1000);
+  playNote(re2, 250);
+  playNote(do2, 250);
+  playNote(si, 250);
+  
+  playNote(la, 500);
+  playNote(si, 500);
+  playNote(sol, 1000);
+  playNote(la, 500);
+  playNote(si, 1000);
+  playNote(la, 250);
+  playNote(sol, 500);
+  playNote(fa_dz, 500);
+
+  playNote(mi, 1000);
+  playNote(fa_dz, 250);
+  playNote(sol, 500);
+  playNote(la, 500);//si
+  playNote(si, 500);//cru
+  playNote(la, 250);//zii
+  playNote(sol, 500);//ii
+  playNote(fa_dz, 500);//tai
+  playNote(sol, 500);//dus
+  playNote(mi, 1000);//mani
+
+
+
+
+}
+
+
+void setup(){
+  // Setează pin-ul buzzer-ului
+  pinMode(13, OUTPUT);
+  lcd.begin(16,2);
+  
+  pinMode(Blue, OUTPUT);  //Blue
+  pinMode(Green, OUTPUT);  //Green
+  pinMode(Red, OUTPUT); //Red
+  pinMode(Buzzer, OUTPUT); //Buzzer
+
+  pinMode(Button, INPUT);   //Button
+}
+
+
+void loop() {
+melody();
+delay(1000);
+}
